@@ -14,6 +14,7 @@
   --grey-color-second: #ececec;
   --icons-color: #afb1b8;
   --icons-background: rgba(255, 255, 255, 0.1);
+  --time-and-cubic: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -108,6 +109,8 @@ button {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--title-text-color);
+
+  transition: color var(--time-and-cubic);
 }
 
 .menu-link:hover,
@@ -143,6 +146,8 @@ button {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
+
+  transition: color var(--time-and-cubic);
 }
 
 .page-header .contact-link:hover,
@@ -228,6 +233,8 @@ button {
   border-radius: 4px;
   background-color: var(--accent-color);
   border: none;
+
+  transition: background-color var(--time-and-cubic);
 }
 
 .btn:hover,
@@ -248,6 +255,8 @@ button {
   border-radius: 4px;
   background-color: var(--grey-bg-color);
   border: none;
+  transition: background-color var(--time-and-cubic), box-shadow var(--time-and-cubic),
+    color var(--time-and-cubic);
 }
 
 .filter-btn:hover,
@@ -400,6 +409,7 @@ button {
   border: 1px solid currentColor;
   border-radius: 4px;
   color: var(--icons-color);
+  transition: color var(--time-and-cubic);
 }
 
 .clients-link:hover,
@@ -448,10 +458,12 @@ button {
 
 .portfolio-link {
   display: block;
+  transition: box-shadow var(--time-and-cubic);
 }
 
 .portfolio-item-thumb {
   position: relative;
+  overflow: hidden;
 }
 
 .portfolio-item-overlay {
@@ -459,17 +471,19 @@ button {
   top: 0;
   width: 100%;
   height: 100%;
+  transform: translateY(100%);
   padding: 63px 24px;
   background-color: rgba(33, 150, 243, 0.9);
-  /* opacity: 0; */
   font-weight: 400;
   font-size: 18px;
   line-height: 1.56;
+  overflow: auto;
   color: var(--accent-text-color);
+  transition: transform var(--time-and-cubic);
 }
 
-.portfolio-link:hover {
-  opacity: 1;
+.portfolio-link:hover .portfolio-item-overlay {
+  transform: translateY(0);
 }
 
 .portfolio-link:hover,
@@ -481,7 +495,7 @@ button {
 .portfolio-item-description {
   padding: 20px 24px;
   border: 1px solid var(--grey-color-first);
-  border-top: none;
+  border-top: 1px solid var(--primary-bg-color);
 }
 
 .portfolio-subtitle {
@@ -530,6 +544,7 @@ button {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
+  transition: color var(--time-and-cubic);
 }
 
 .footer-address-link {
@@ -578,12 +593,12 @@ button {
   color: var(--accent-text-color);
   background-color: var(--icons-background);
   border-radius: 50%;
+  transition: background-color var(--time-and-cubic);
 }
 
 .social-link:hover,
 .social-link:focus {
   background-color: var(--accent-color);
-  border-radius: 50%;
 }
 
 .social-icon {
@@ -605,6 +620,7 @@ button {
   align-items: center;
   color: var(--icons-color);
   border-radius: 50%;
+  transition: color var(--time-and-cubic), background-color var(--time-and-cubic);
 }
 
 .team-social-link:hover,
@@ -620,6 +636,7 @@ button {
 }
 
 /* ========== modal window ========== */
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -628,11 +645,19 @@ button {
   height: 100%;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.2);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
-opacity: 0;
-pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  opacity: 0;
+  transform: translate(-50%, -65%);
 }
 
 .modal {
@@ -646,6 +671,8 @@ pointer-events: none;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1) 250ms, opacity 750ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
 
 .modal-close {
@@ -655,13 +682,10 @@ pointer-events: none;
   width: 30px;
   height: 30px;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: none;
-  border: none;
-}
-
-.modal-icon-close {
-  width: 100%;
-  height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 }
