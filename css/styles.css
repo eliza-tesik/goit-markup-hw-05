@@ -19,6 +19,8 @@
 
 body {
   font-family: var(--primary-font);
+  font-size: 14px;
+  letter-spacing: 0.03em;
   color: var(--primary-text-color);
   background-color: var(--primary-bg-color);
 }
@@ -81,7 +83,6 @@ button {
   font-size: 36px;
   line-height: 1.17;
   text-align: center;
-  letter-spacing: 0.03em;
   color: var(--title-text-color);
 }
 
@@ -93,7 +94,6 @@ button {
   font-weight: 700;
   font-size: 26px;
   line-height: 1.19;
-  letter-spacing: 0.03em;
   color: var(--title-text-color);
 }
 
@@ -105,7 +105,6 @@ button {
 
 .menu-link {
   font-weight: 500;
-  font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--title-text-color);
@@ -142,7 +141,6 @@ button {
 
 .page-header .contact-link {
   font-weight: 500;
-  font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
@@ -250,7 +248,6 @@ button {
   font-size: 16px;
   line-height: 1.62;
   text-align: center;
-  letter-spacing: 0.03em;
   color: var(--title-text-color);
   border-radius: 4px;
   background-color: var(--grey-bg-color);
@@ -298,17 +295,13 @@ button {
 
 .qualities-subtitle {
   margin-bottom: 10px;
-  font-size: 14px;
   line-height: 1.14;
-  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--title-text-color);
 }
 
 .qualities-text {
-  font-size: 14px;
   line-height: 1.71;
-  letter-spacing: 0.03em;
 }
 
 /* ========== what we do ========== */
@@ -336,7 +329,6 @@ button {
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  font-size: 14px;
   line-height: 1.14;
   text-transform: uppercase;
   background: rgba(47, 48, 58, 0.8);
@@ -374,7 +366,6 @@ button {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.19;
-  letter-spacing: 0.03em;
   color: var(--title-text-color);
 }
 
@@ -383,7 +374,6 @@ button {
   text-align: center;
   font-size: 16px;
   line-height: 1.19;
-  letter-spacing: 0.03em;
   color: var(--primary-text-color);
 }
 
@@ -482,7 +472,8 @@ button {
   transition: transform var(--time-and-cubic);
 }
 
-.portfolio-link:hover .portfolio-item-overlay {
+.portfolio-link:hover .portfolio-item-overlay,
+.portfolio-link:focus .portfolio-item-overlay {
   transform: translateY(0);
 }
 
@@ -509,7 +500,6 @@ button {
 .portfolio-text {
   font-size: 16px;
   line-height: 1.88;
-  letter-spacing: 0.03em;
   color: var(--primary-text-color);
 }
 
@@ -540,9 +530,7 @@ button {
 
 .footer-address-link,
 .footer-contact-link {
-  font-size: 14px;
   line-height: 1.71;
-  letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
   transition: color var(--time-and-cubic);
 }
@@ -566,10 +554,8 @@ button {
 
 .social-subtitle {
   margin-bottom: 20px;
-  font-size: 14px;
   font-weight: 700;
   line-height: 1.14;
-  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--accent-text-color);
 }
@@ -646,7 +632,8 @@ button {
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.2);
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -672,7 +659,8 @@ button {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
-  transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1) 250ms, opacity 750ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+  transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1) 250ms,
+    opacity 750ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
 
 .modal-close {
